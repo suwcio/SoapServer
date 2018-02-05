@@ -1,0 +1,57 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="getCarRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCarResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="car" type="tns:car"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createCarRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="speed" type="xs:int"/>
+                <xs:element name="acceleration" type="xs:int"/>
+                <xs:element name="weight" type="xs:int"/>
+                <xs:element name="engineClass" type="tns:engineClass"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createCarResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="car" type="tns:car"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="car">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="speed" type="xs:int"/>
+            <xs:element name="acceleration" type="xs:int"/>
+            <xs:element name="weight" type="xs:int"/>
+            <xs:element name="engineClass" type="tns:engineClass"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="engineClass">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Electric"/>
+            <xs:enumeration value="Glow"/>
+            <xs:enumeration value="Special"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
